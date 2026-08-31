@@ -1,0 +1,51 @@
+/* Scroll motion system: content stays visible when JavaScript or motion support is unavailable. */
+.motion-ready .scroll-reveal{opacity:0;translate:0 44px;filter:blur(8px);transition:opacity .8s cubic-bezier(.2,.75,.2,1),translate .9s cubic-bezier(.16,1,.3,1),filter .75s ease;transition-delay:var(--reveal-delay,0ms);will-change:opacity,translate,filter}
+.motion-ready .scroll-reveal.is-visible{opacity:1;translate:0 0;filter:blur(0)}
+.motion-ready .section-heading>p.scroll-reveal,.motion-ready .project-detail-hero>aside.scroll-reveal{translate:34px 28px}
+.motion-ready .section-heading>p.scroll-reveal.is-visible,.motion-ready .project-detail-hero>aside.scroll-reveal.is-visible{translate:0 0}
+.motion-ready .service-row.scroll-reveal{translate:-34px 26px}
+.motion-ready .service-row.scroll-reveal.is-visible{translate:0 0}
+.motion-ready .project-card.scroll-reveal:nth-child(even){translate:42px 50px}
+.motion-ready .project-card.scroll-reveal:nth-child(even).is-visible{translate:0 0}
+
+/* Product previews feel alive without taking control away from the visitor. */
+.motion-ready .hero-stage{translate:0 var(--hero-shift,0);transition:translate .12s linear}
+.motion-ready .project-card .project-visual{translate:var(--preview-x,0) var(--preview-y,0);scale:1.012;transition:translate .32s cubic-bezier(.2,.8,.2,1),scale .45s ease}
+.motion-ready .project-card:hover .project-visual{scale:1.025}
+.motion-ready .depth-interactive{transform:perspective(1350px) rotateX(var(--depth-rotate-x,0deg)) rotateY(var(--depth-rotate-y,0deg)) translateZ(0);transform-style:preserve-3d;transform-origin:center;transition:transform .48s cubic-bezier(.16,1,.3,1),box-shadow .48s ease;will-change:transform}.motion-ready .depth-interactive.is-depth-active{transition-duration:.12s}.motion-ready .hero-window.depth-interactive{animation:none}.motion-ready .about-portrait-card.depth-interactive.is-depth-active{box-shadow:0 44px 95px rgba(72,55,40,.24)}.motion-ready .about-portrait-card.depth-interactive.is-depth-active img{transform:translateZ(46px) scale(1.045)}.motion-ready .project-window.depth-interactive{transform-origin:65% 55%}.motion-ready .project-window.depth-interactive .project-browser{transform:translateZ(26px)}.motion-ready .engineering-console.depth-interactive,.motion-ready .wp-console.depth-interactive{transform-origin:50% 45%}.motion-ready .hire-lead.depth-interactive>*{position:relative;z-index:1;transform:translateZ(24px)}
+.motion-ready .project-card.is-visible .analytics-chart i{transform-origin:bottom;animation:motionBarRise .85s cubic-bezier(.16,1,.3,1) both}
+.motion-ready .project-card.is-visible .analytics-chart i:nth-child(2n){animation-delay:.08s}
+.motion-ready .project-card.is-visible .analytics-chart i:nth-child(3n){animation-delay:.16s}
+.motion-ready .project-card.is-visible .ats-progress em{transform-origin:left;animation:motionLineGrow 1s cubic-bezier(.16,1,.3,1) both .24s}
+.motion-ready .project-card.is-visible .product-grid article{animation:motionProductIn .7s cubic-bezier(.16,1,.3,1) both}
+.motion-ready .project-card.is-visible .product-grid article:nth-child(2){animation-delay:.1s}
+.motion-ready .project-card.is-visible .product-grid article:nth-child(3){animation-delay:.2s}
+
+/* A small motion signature for technical UI details. */
+.motion-ready .industry-card.is-visible i{animation:motionCorner .65s cubic-bezier(.16,1,.3,1) both .25s}
+.motion-ready .process-grid article.is-visible span{animation:motionStep .7s cubic-bezier(.16,1,.3,1) both .2s}
+.motion-ready .client-project-card.is-visible .client-project-media{animation:motionMediaIn .85s cubic-bezier(.16,1,.3,1) both}
+.motion-ready .footer>div.is-visible a{transition:color .25s ease,translate .25s ease}
+.motion-ready .footer>div.is-visible a:hover{translate:4px 0}
+
+@keyframes motionBarRise{from{scale:1 0;opacity:.25}to{scale:1 1;opacity:1}}
+@keyframes motionLineGrow{from{scale:0 1}to{scale:1 1}}
+@keyframes motionProductIn{from{opacity:0;translate:0 24px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes motionCorner{from{opacity:0;translate:-10px 10px}to{opacity:1;translate:0 0}}
+@keyframes motionStep{from{scale:.55;opacity:0}to{scale:1;opacity:1}}
+@keyframes motionMediaIn{from{opacity:.45;scale:1.04}to{opacity:1;scale:1}}
+
+@media(max-width:760px){
+ .motion-ready .scroll-reveal,.motion-ready .section-heading>p.scroll-reveal,.motion-ready .project-detail-hero>aside.scroll-reveal,.motion-ready .service-row.scroll-reveal,.motion-ready .project-card.scroll-reveal:nth-child(even){translate:0 26px;filter:blur(4px);transition-duration:.65s}
+ .motion-ready .scroll-reveal.is-visible,.motion-ready .section-heading>p.scroll-reveal.is-visible,.motion-ready .project-detail-hero>aside.scroll-reveal.is-visible,.motion-ready .service-row.scroll-reveal.is-visible,.motion-ready .project-card.scroll-reveal:nth-child(even).is-visible{translate:0 0;filter:blur(0)}
+ .motion-ready .hero-stage{translate:0 0}
+ .motion-ready .project-card .project-visual{translate:0 0;scale:1}
+ .motion-ready .depth-interactive{transform:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .scroll-reveal{opacity:1!important;translate:none!important;filter:none!important}
+ .hero-stage,.project-visual{translate:none!important;scale:1!important}
+ .depth-interactive{transform:none!important}
+}

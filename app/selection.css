@@ -1,0 +1,52 @@
+/* Selection-focused proof sections. */
+.hire-reasons{position:relative}
+.hire-heading{align-items:center}
+.hire-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;gap:16px}
+.hire-lead{grid-row:1/3;min-height:470px;padding:46px;display:flex;flex-direction:column;border-radius:30px;background:radial-gradient(circle at 85% 12%,rgba(201,135,103,.42),transparent 35%),linear-gradient(145deg,#2d302b,#44483f);color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 65px rgba(56,47,39,.15)}
+.hire-lead::after{content:"";position:absolute;width:330px;height:330px;right:-145px;bottom:-160px;border:1px solid rgba(255,255,255,.14);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.035),0 0 0 110px rgba(255,255,255,.02)}
+.hire-lead>span{color:#dca080;font-size:11px;font-weight:850;letter-spacing:.14em}
+.hire-lead h3{max-width:570px;margin:38px 0 20px;font-size:clamp(42px,4vw,62px);line-height:.98;letter-spacing:-.06em}
+.hire-lead p{max-width:560px;margin:0;color:#c9cec5;font-size:17px;line-height:1.72}
+.delivery-path{position:relative;z-index:1;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:34px;border-top:1px solid rgba(255,255,255,.14)}
+.delivery-path span{padding:9px 12px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.06);font-size:11px;font-weight:750}
+.delivery-path i{color:#dca080;font-size:12px;font-style:normal}
+.hire-card{min-height:226px;padding:28px;display:flex;flex-direction:column;border:1px solid #ded3c5;border-radius:25px;background:#fffaf3;position:relative;overflow:hidden;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.hire-card:hover{transform:translateY(-7px);border-color:#c99b81;box-shadow:0 22px 48px rgba(78,59,44,.1)}
+.hire-card>span{color:#aa6048;font-size:11px;font-weight:850;letter-spacing:.12em}
+.hire-card h3{margin:38px 0 10px;font-size:25px;line-height:1.05;letter-spacing:-.045em}
+.hire-card p{margin:0;color:#6d7068;font-size:14px;line-height:1.62}
+.hire-card>i{position:absolute;right:25px;top:25px;color:#b66a4f;font-size:14px;font-style:normal;transition:transform .3s ease}
+.hire-card:hover>i{transform:rotate(45deg)}
+
+.wordpress-depth{color:#f8f3eb;background:radial-gradient(circle at 18% 20%,rgba(184,100,72,.2),transparent 32rem),linear-gradient(145deg,#252823,#30342d);overflow:hidden}
+.wordpress-heading{align-items:center}
+.wordpress-heading>p{color:#b8beb4}
+.wordpress-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.wp-console{overflow:hidden;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:#1e211d;box-shadow:0 32px 80px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.08)}
+.wp-console>header{height:52px;display:flex;align-items:center;gap:7px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.1);background:#292d27}
+.wp-console>header i{width:8px;height:8px;border-radius:50%;background:#b86148}
+.wp-console>header i:nth-child(2){background:#d4a35d}.wp-console>header i:nth-child(3){background:#778f72}
+.wp-console>header span{margin-left:auto;margin-right:auto;color:#858d82;font-size:10px;letter-spacing:.08em}
+.wp-console>div{padding:38px}
+.wp-console small{display:block;color:#d58665;font-size:10px;font-weight:850;letter-spacing:.14em}
+.wp-console strong{display:block;margin:12px 0 32px;font-size:30px;letter-spacing:-.045em}
+.wp-console ul{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.1)}
+.wp-console li{display:grid;grid-template-columns:115px 1fr;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.wp-console li b{color:#e7ae8f;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.wp-console li span{color:#abb2a7;font-size:13px}
+.wp-console footer{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
+.wp-console footer span{padding:8px 11px;border-radius:999px;background:rgba(184,100,72,.13);color:#e3b198;font-size:10px;font-weight:750}
+.wp-capability-list{border-top:1px solid rgba(255,255,255,.14)}
+.wp-capability{min-height:126px;display:grid;grid-template-columns:42px 1fr 30px;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.wp-capability>span{color:#d98c6c;font-size:11px;font-weight:850}
+.wp-capability h3{margin:0 0 7px;font-size:23px;letter-spacing:-.04em}
+.wp-capability p{max-width:520px;margin:0;color:#aeb5aa;font-size:14px;line-height:1.62}
+.wp-capability>i{width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);border-radius:50%;color:#da8d6d;font-size:11px;font-style:normal;transition:transform .3s ease,background .3s ease}
+.wp-capability:hover>i{transform:rotate(45deg);background:rgba(184,100,72,.16)}
+
+@media(max-width:1020px){
+ .hire-grid{grid-template-columns:1fr 1fr}.hire-lead{grid-column:1/-1;grid-row:auto;min-height:410px}.wordpress-layout{grid-template-columns:1fr;gap:38px}.wp-console{max-width:760px}
+}
+@media(max-width:680px){
+ .hire-grid{grid-template-columns:1fr;gap:12px}.hire-lead{grid-column:auto;min-height:470px;padding:34px 26px}.hire-lead h3{font-size:43px}.hire-lead p{font-size:16px}.delivery-path{gap:8px}.delivery-path span{font-size:10px}.hire-card{min-height:205px;padding:25px}.wordpress-layout{gap:30px}.wp-console>div{padding:27px 22px}.wp-console strong{font-size:25px}.wp-console li{grid-template-columns:1fr;gap:6px}.wp-capability{grid-template-columns:34px 1fr 28px;gap:13px}.wp-capability h3{font-size:21px}.wp-capability p{font-size:13px}
+}

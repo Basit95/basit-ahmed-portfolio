@@ -1,0 +1,223 @@
+/* Final interaction and responsive pass. Imported last so it can correct legacy layers safely. */
+*,*::before,*::after{min-width:0}
+img,svg{max-width:100%}
+.mobile-menu-layer{display:none}
+
+/* The architecture cards stand on their own; the previous centre divider added visual noise. */
+.component-map::before{content:none!important;display:none!important}
+.component-map{gap:12px}
+.component-map span:nth-child(n){margin:0}
+
+/* A quieter, more confident closing statement. */
+.final-cta{position:relative;isolation:isolate;overflow:hidden}
+.final-cta::before{content:"";position:absolute;z-index:-1;inset:-35%;background:radial-gradient(circle at var(--depth-light-x,24%) var(--depth-light-y,24%),rgba(255,255,255,.72),transparent 27%);pointer-events:none;transition:opacity .35s ease}
+.final-cta h2{max-width:700px;font-size:clamp(48px,5.4vw,72px);line-height:.94}
+.final-cta-copy>p{max-width:650px;font-size:18px}
+.final-cta-aside li{font-size:15px;line-height:1.45}
+.final-cta-aside p{font-size:13px;line-height:1.65}
+
+/* Consistent three-dimensional response across the portfolio's working surfaces. */
+.hero-stage,.about-unified,.service-list,.hire-grid,.project-list,.github-project-grid,.industry-grid,.client-project-grid,.engineering-layout,.wordpress-layout,.process-grid,.project-detail{perspective:1400px}
+.motion-ready .depth-interactive{backface-visibility:hidden;transform:perspective(1400px) rotateX(var(--depth-rotate-x,0deg)) rotateY(var(--depth-rotate-y,0deg)) translate3d(0,0,0);transform-style:preserve-3d;transition:transform .46s cubic-bezier(.16,1,.3,1),box-shadow .46s ease,border-color .35s ease;will-change:transform}
+.motion-ready .depth-interactive.is-depth-active{transition-duration:.1s}
+.motion-ready .service-row.depth-interactive.is-depth-active,.motion-ready .hire-card.depth-interactive.is-depth-active,.motion-ready .github-project-card.depth-interactive.is-depth-active,.motion-ready .industry-card.depth-interactive.is-depth-active,.motion-ready .process-grid article.depth-interactive.is-depth-active,.motion-ready .detail-feature-grid li.depth-interactive.is-depth-active{box-shadow:0 24px 52px rgba(70,55,40,.13);border-color:rgba(176,104,76,.38);z-index:3}
+.motion-ready .service-row.depth-interactive>div,.motion-ready .hire-card.depth-interactive>h3,.motion-ready .hire-card.depth-interactive>p,.motion-ready .github-project-card.depth-interactive>h3,.motion-ready .github-project-card.depth-interactive>p,.motion-ready .industry-card.depth-interactive>strong,.motion-ready .process-grid article.depth-interactive>h3,.motion-ready .process-grid article.depth-interactive>p,.motion-ready .detail-feature-grid li.depth-interactive{transform:translateZ(18px)}
+.motion-ready .client-project-card.depth-interactive.is-depth-active{box-shadow:0 38px 86px rgba(65,50,38,.18)}
+.motion-ready .client-project-card.depth-interactive .client-project-media{transform:translateZ(22px)}
+.motion-ready .client-project-card.depth-interactive .client-project-copy{position:relative;transform:translateZ(12px)}
+.motion-ready .final-cta.depth-interactive.is-depth-active,.motion-ready .project-detail-actions.depth-interactive.is-depth-active{box-shadow:0 38px 90px rgba(70,54,40,.17)}
+.motion-ready .final-cta.depth-interactive>*{transform:translateZ(22px)}
+.motion-ready .project-detail-hero aside.depth-interactive>*{transform:translateZ(15px)}
+.motion-ready .project-detail-actions.depth-interactive>*{transform:translateZ(18px)}
+
+/* Engineering chapters stay flat and precise: no tilt, lifted text or rotating arrows. */
+.motion-ready .engineering-console,
+.motion-ready .wp-console,
+.motion-ready .engineering-capability,
+.motion-ready .wp-capability{transform:none!important;transform-style:flat!important;will-change:auto!important}
+.motion-ready .engineering-capability>div,
+.motion-ready .wp-capability>div{transform:none!important}
+.engineering-capability:hover>i,
+.wp-capability:hover>i{transform:none!important;background:transparent!important}
+.engineering-capability:hover,
+.wp-capability:hover{box-shadow:none!important}
+
+/* Responsive layout: readable, contained and touch-friendly from tablet to small phones. */
+@media(max-width:1100px){
+ .page-shell{width:min(100% - 48px,1040px)}
+ .hero{grid-template-columns:minmax(0,1fr);gap:24px;min-height:0;padding-top:72px}
+ .hero-copy{max-width:780px}
+ .hero-stage{width:100%;max-width:720px;margin:20px auto 0}
+ .about-unified{grid-template-columns:minmax(270px,340px) minmax(0,1fr);gap:44px}
+ .service-row{grid-template-columns:42px minmax(0,1fr) minmax(180px,.65fr) 44px}
+ .hire-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hire-lead{grid-column:1/-1}
+ .client-project-grid{gap:22px}
+ .project-detail-hero{gap:48px}
+}
+
+@media(max-width:820px){
+ html,body{width:100%;max-width:100%;overflow-x:clip!important;overscroll-behavior-x:none}
+ main{width:100%;max-width:100%;overflow:clip}
+ .motion-ready .scroll-reveal,
+ .motion-ready .section-heading>p.scroll-reveal,
+ .motion-ready .project-detail-hero>aside.scroll-reveal,
+ .motion-ready .service-row.scroll-reveal,
+ .motion-ready .project-card.scroll-reveal:nth-child(even){opacity:1!important;translate:none!important;filter:none!important;transition:none!important}
+ .motion-ready .depth-interactive{transform:none!important;transform-style:flat!important;will-change:auto!important}
+ .liquid-cursor,.liquid-glow{display:none!important}
+ .page-shell{width:calc(100% - 36px)}
+ .section{padding-block:76px}
+ .section-heading,.section-heading.compact,.engineering-heading,.wordpress-heading{grid-template-columns:1fr!important;gap:18px;margin-bottom:38px;align-items:start}
+ .section-heading h2 br,.final-cta h2 br{display:none}
+ .section-heading>p{max-width:650px;margin:0;font-size:17px}
+ .about-unified{grid-template-columns:1fr;gap:42px}
+ .about-portrait-card{position:relative;top:auto;width:min(100%,520px);min-height:650px;margin:auto}
+ .about-copy h2{font-size:clamp(38px,8vw,52px)}
+ .about-copy>p,.about-copy>p:first-of-type{font-size:17px;line-height:1.68}
+ .service-row{grid-template-columns:36px minmax(0,1fr) 42px;gap:14px;padding:24px 16px}
+ .service-tags{grid-column:2;justify-content:flex-start}
+ .service-row h3{font-size:24px}
+ .hire-grid{grid-template-columns:1fr}
+ .hire-lead{grid-column:auto;padding:34px}
+ .delivery-path{flex-wrap:wrap}
+ .client-project-grid,.github-project-grid{grid-template-columns:1fr}
+ .client-project-card:nth-child(3){display:block;grid-column:auto}
+ .client-project-card:nth-child(3) .client-project-media{height:290px;min-height:0}
+ .client-project-card:nth-child(3) .client-project-copy{display:block;padding:28px}
+ .client-project-copy p{min-height:0}
+ .engineering-layout,.engineering-layout.reverse,.wordpress-layout{grid-template-columns:1fr;gap:34px}
+ .engineering-layout.reverse .engineering-console{order:0}
+ .engineering-console,.wp-console{width:100%;max-width:none}
+ .project-card{grid-template-columns:1fr}
+ .project-visual{min-height:420px}
+ .industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .final-cta{width:calc(100% - 36px);grid-template-columns:1fr;gap:32px;padding:50px 34px;margin-block:68px;border-radius:30px}
+ .final-cta h2{font-size:clamp(42px,9vw,56px)}
+ .project-detail{padding-top:120px;padding-bottom:70px}
+ .project-detail-hero,.project-detail-block,.project-detail-actions{grid-template-columns:1fr;gap:30px}
+ .project-detail-hero h1{font-size:clamp(50px,12vw,76px)}
+ .project-detail-block{padding-block:68px}
+ .project-detail-actions{padding:34px}
+ .project-detail-actions>div:last-child{justify-content:flex-start}
+ .footer{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px}
+}
+
+@media(max-width:760px){
+ .site-header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(255,252,246,.98)}
+ html.menu-open,body.menu-open{overflow:hidden!important;overscroll-behavior:none}
+ .site-header>.desktop-nav{display:none!important}
+ .mobile-menu-layer{position:fixed;inset:0;z-index:5000;width:100%;height:100dvh;display:flex;flex-direction:column;padding:max(22px,env(safe-area-inset-top)) 22px max(24px,env(safe-area-inset-bottom));overflow-y:auto;overflow-x:hidden;background:radial-gradient(circle at 92% 8%,rgba(185,103,74,.16),transparent 30%),linear-gradient(145deg,#fbf8f2,#f0eadf);color:#292c27;transform:translate3d(100%,0,0);visibility:hidden;pointer-events:none;transition:transform .46s cubic-bezier(.22,.8,.2,1),visibility 0s linear .46s;will-change:transform}
+ .mobile-menu-layer.open{transform:translate3d(0,0,0);visibility:visible;pointer-events:auto;transition-delay:0s}
+ .mobile-drawer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid #ddd3c6}
+ .mobile-drawer-brand{display:flex;align-items:center;gap:11px}
+ .mobile-drawer-brand>span{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:#b86448;color:#fff;font-size:11px;font-weight:850}
+ .mobile-drawer-brand>strong{display:flex;flex-direction:column;font-family:"Sora Variable",Sora,sans-serif;font-size:15px;line-height:1.15}
+ .mobile-drawer-brand small{margin-top:4px;color:#858077;font-family:"DM Sans Variable","DM Sans",sans-serif;font-size:8px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+ .mobile-drawer-top>button{position:relative;width:46px;height:46px;flex:none;border:1px solid #d8ccbe;border-radius:15px;background:#fffaf3;color:#2d302b}
+ .mobile-drawer-top>button i{position:absolute;left:14px;top:22px;width:18px;height:2px;background:currentColor;transform:rotate(45deg)}
+ .mobile-drawer-top>button i:last-child{transform:rotate(-45deg)}
+ .mobile-menu-layer nav{display:flex;flex-direction:column;margin:auto 0;padding:32px 0}
+ .mobile-menu-layer nav a{display:grid;grid-template-columns:34px 1fr 42px;gap:12px;align-items:center;padding:18px 0;border-bottom:1px solid #ddd3c6;opacity:0;translate:34px 0;transition:opacity .35s ease,translate .45s cubic-bezier(.16,1,.3,1)}
+ .mobile-menu-layer nav a:first-child{border-top:1px solid #ddd3c6}
+ .mobile-menu-layer.open nav a{opacity:1;translate:0 0}
+ .mobile-menu-layer.open nav a:nth-child(2){transition-delay:.05s}.mobile-menu-layer.open nav a:nth-child(3){transition-delay:.1s}.mobile-menu-layer.open nav a:nth-child(4){transition-delay:.15s}.mobile-menu-layer.open nav a:nth-child(5){transition-delay:.2s}
+ .mobile-menu-layer nav a>span{color:#a75a43;font-size:10px;font-weight:850;letter-spacing:.1em}
+ .mobile-menu-layer nav a>strong{font-family:"Sora Variable",Sora,sans-serif;font-size:clamp(30px,9vw,42px);font-weight:670;line-height:1;letter-spacing:-.05em}
+ .mobile-menu-layer nav a>i{width:38px;height:38px;display:grid;place-items:center;border:1px solid #d8ccbe;border-radius:50%;color:#a75a43;font-size:13px;font-style:normal}
+ .mobile-menu-layer footer{padding-top:20px;border-top:1px solid #ddd3c6}
+ .mobile-menu-layer footer p{max-width:330px;margin:0;color:#666961;font-size:14px;line-height:1.55}
+ .mobile-menu-layer footer span{display:block;margin-top:12px;color:#a75a43;font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+}
+
+@media(max-width:560px){
+ body{font-size:16px}
+ .page-shell{width:calc(100% - 28px)}
+ .section{padding-block:64px}
+ .site-header{width:calc(100% - 20px);height:66px;top:7px;margin-top:7px;padding-inline:10px 8px;border-radius:18px}
+ .logo{gap:9px;font-size:14px}.logo .brand-mark{width:40px;height:40px}.logo>strong small{font-size:6px;letter-spacing:.1em}
+ .menu-button{height:42px;padding-left:12px}.menu-button>span{margin-right:26px}
+ .mobile-menu-layer{padding-inline:18px}
+ .mobile-menu-layer nav{padding-block:24px}
+ .mobile-menu-layer nav a{padding:16px 0;grid-template-columns:30px 1fr 38px}
+ .mobile-menu-layer nav a>strong{font-size:clamp(29px,9.5vw,38px)}
+ .hero{padding-top:52px;padding-bottom:56px}
+ .eyebrow{width:auto;max-width:100%;font-size:10px;line-height:1.35}
+ .hero h1{font-size:clamp(45px,14vw,62px);margin-block:24px 20px}
+ .hero-lead{font-size:17px;line-height:1.62}
+ .hero-meta{grid-template-columns:1fr 1fr;gap:18px 12px}
+ .hero-meta div:last-child{grid-column:1/-1}
+ .hero-stage{min-height:330px;margin-top:28px}
+ .hero-window{height:280px;border-radius:18px}
+ .floating-chip,.orbit{display:none}
+ .window-body{grid-template-columns:48px 1fr}
+ .window-content{padding:16px 12px}
+ .window-metrics{gap:7px}
+ .window-metrics article{padding:11px}
+ .section-heading h2{font-size:clamp(36px,10.5vw,44px)}
+ .about-portrait-card{min-height:520px;border-radius:26px}
+ .about-copy h2{font-size:clamp(36px,10vw,44px)}
+ .about-facts{grid-template-columns:1fr}
+ .about-facts>div:last-child{grid-column:auto}
+ .service-row{grid-template-columns:30px minmax(0,1fr);gap:11px}
+ .service-row .round-arrow{display:none}
+ .service-tags{grid-column:2}
+ .hire-lead{padding:28px 24px}
+ .hire-lead h3{font-size:clamp(34px,10vw,43px)}
+ .delivery-path{gap:8px}.delivery-path i{display:none}
+ .project-copy{padding:30px 22px}
+ .project-copy h3{font-size:clamp(36px,11vw,44px)}
+ .project-links{align-items:stretch}.project-links .button{width:100%;justify-content:space-between}
+ .project-visual{min-height:350px;padding:42px 0 0 14px}
+ .project-window{height:308px}
+ .client-project-media,.client-project-grid.compact .client-project-media,.client-project-card:nth-child(3) .client-project-media{height:235px}
+ .client-project-open{left:14px;right:auto;bottom:14px;padding-left:12px;font-size:10px}
+ .client-project-copy,.client-project-grid.compact .client-project-copy,.client-project-card:nth-child(3) .client-project-copy{padding:22px 20px}
+ .client-project-copy h3,.client-project-card:nth-child(3) .client-project-copy h3{font-size:26px}
+ .github-project-card{min-height:0;padding:24px}
+ .industry-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .industry-card{min-height:126px;padding:20px 16px}.industry-card strong{font-size:17px}
+ .engineering-console>header,.wp-console>header{height:48px;padding-inline:15px}
+ .engineering-console>div,.wp-console>div{padding:25px 20px}
+ .engineering-console strong,.wp-console strong{font-size:24px;line-height:1.12}
+ .component-map{grid-template-columns:1fr}
+ .engineering-capability,.wp-capability{grid-template-columns:30px minmax(0,1fr);gap:12px;padding-block:20px}
+ .engineering-capability>i,.wp-capability>i{display:none}
+ .backend-console li,.wp-console li{grid-template-columns:60px minmax(0,1fr);gap:8px}
+ .backend-console li em{display:none}
+ .wp-console li span,.backend-console li span{overflow-wrap:anywhere}
+ .process-grid{grid-template-columns:1fr}
+ .process-grid article{min-height:0;padding:25px 4px!important}
+ .final-cta{width:calc(100% - 20px);padding:42px 22px;margin-block:54px;border-radius:26px}
+ .final-cta h2{font-size:clamp(38px,11vw,48px)}
+ .final-cta-copy>p{font-size:16px;line-height:1.65}
+ .final-cta-aside{padding:22px 18px}.final-cta-aside li{font-size:14px}
+ .footer{width:calc(100% - 28px);grid-template-columns:1fr;gap:28px;padding-bottom:34px}
+ .footer>div:first-child,.footer>div:last-child{grid-column:auto}
+ .project-detail{padding-top:105px}
+ .project-back{margin-bottom:30px}
+ .project-detail-hero{padding-bottom:48px}
+ .project-detail-hero h1{font-size:clamp(44px,13vw,60px);overflow-wrap:anywhere}
+ .project-detail-hero p,.project-detail-block p{font-size:16px}
+ .project-detail-hero aside{padding:22px}
+ .project-detail-block{padding-block:54px}
+ .project-detail-block h2{font-size:clamp(34px,10vw,43px)}
+ .detail-feature-grid{grid-template-columns:1fr}
+ .detail-feature-grid li{min-height:0;padding:20px;font-size:14px}
+ .detail-decisions li{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:20px 0}
+ .project-detail-actions{padding:28px 22px;margin-top:54px}
+ .project-detail-actions h2{font-size:34px}
+ .project-detail-actions>div:last-child{flex-direction:column;align-items:stretch}
+ .project-detail-actions .button{width:100%;justify-content:space-between}
+ .project-detail-page>.footer{width:calc(100% - 20px);padding:32px 20px}
+}
+
+@media(hover:none),(pointer:coarse){
+ .motion-ready .depth-interactive{transform:none!important;will-change:auto}
+ .service-row:active,.hire-card:active,.github-project-card:active,.industry-card:active,.client-project-card:active,.detail-feature-grid li:active{transform:scale(.985)}
+}
+
+@media(prefers-reduced-motion:reduce){
+ .motion-ready .depth-interactive{transform:none!important;transition:none!important}
+}
