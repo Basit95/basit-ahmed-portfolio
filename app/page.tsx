@@ -8,6 +8,23 @@ import GitHubProjects from "../components/GitHubProjects";
 import ParallaxBand from "../components/ParallaxBand";
 import SkillsMatrix from "../components/SkillsMatrix";
 
+const technologyRail = [
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+  { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" },
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+  { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" },
+  { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" },
+  { name: "WordPress", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg" },
+  { name: "Shopify", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg" },
+  { name: "WooCommerce", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/woocommerce/woocommerce-original.svg" },
+  { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+  { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+];
+
 const services = [
   { index: "01", title: "Product & frontend engineering", text: "Scalable React, Next.js and Angular interfaces for SaaS products, dashboards and internal tools.", tags: ["React", "Next.js", "TypeScript"] },
   { index: "02", title: "WordPress, Shopify & commerce", text: "Custom WordPress themes and plugins, reusable editor components, and polished Shopify storefronts built around real buying journeys.", tags: ["WordPress", "Shopify", "WooCommerce"] },
@@ -88,7 +105,19 @@ export default function Home() {
         </div>
       </section>
       <AnimatedMetrics />
-      <section className="technology-rail" aria-label="Technologies and capabilities"><div className="rail-label page-shell"><span>Engineering across</span><i/></div><div className="rail-track"><div>{["Next.js","React","TypeScript","Angular","WordPress","Shopify","Liquid","WooCommerce","Laravel","PHP","Supabase","REST APIs","Performance","Next.js","React","TypeScript","Angular","WordPress","Shopify","Liquid","WooCommerce","Laravel","PHP","Supabase","REST APIs","Performance"].map((tech,i)=><span key={`${tech}-${i}`}><i/> {tech}</span>)}</div></div></section>
+      <section className="technology-rail" aria-label="Technologies and capabilities">
+        <div className="rail-label page-shell"><span>Engineering across</span><i /></div>
+        <div className="rail-track">
+          <div>
+            {[...technologyRail, ...technologyRail].map((tech, index) => (
+              <span key={tech.name + "-" + index} className="rounded-full border border-[#e2d7ca] bg-white/70 px-4 py-2.5 shadow-[0_7px_18px_rgba(60,43,31,0.05)]">
+                <img src={tech.icon} alt="" width="23" height="23" loading="lazy" className="h-[23px] w-[23px] object-contain" />
+                {tech.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="about-section section page-shell" id="about" aria-labelledby="about-heading">
         <div className="about-unified">
           <figure className="about-portrait-card">
