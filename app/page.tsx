@@ -5,6 +5,7 @@ import ProjectMockup, { type ProjectVariant } from "../components/ProjectMockup"
 import ClientProjects from "../components/ClientProjects";
 import SiteFooter from "../components/SiteFooter";
 import GitHubProjects from "../components/GitHubProjects";
+import ParallaxBand from "../components/ParallaxBand";
 
 const services = [
   { index: "01", title: "Product & frontend engineering", text: "Scalable React, Next.js and Angular interfaces for SaaS products, dashboards and internal tools.", tags: ["React", "Next.js", "TypeScript"] },
@@ -120,6 +121,7 @@ export default function Home() {
         </div>
       </section>
       <section className="commercial-work section" id="projects"><div className="page-shell"><div className="section-heading commercial-heading"><div><span className="kicker">04 / Live client systems</span><h2>Different industries.<br />Real product decisions.</h2></div><p>From healthcare and banking to Shopify commerce, recruitment, architecture and renewable energy, every case study explains the problem, my contribution and how the experience was built.</p></div><ClientProjects compact /></div></section>
+      <div className="page-shell"><ParallaxBand /></div>
       <section className="work-section section" id="featured-projects"><div className="page-shell">
         <div className="section-heading work-heading"><div><span className="kicker">05 / Featured work</span><h2>Proof, not promises.</h2></div><a href="https://github.com/Basit95" target="_blank" rel="noreferrer" className="text-link">GitHub profile <Arrow /></a></div>
         <div className="project-list">{projects.map((project,index)=><article className="project-card" key={project.name}><div className="project-copy"><span className="project-index">{String(index+1).padStart(2,"0")}</span><span className="project-type">{project.type}</span><h3>{project.name}</h3><p>{project.summary}</p><div className="project-details"><span>{project.stack}</span><strong>{project.result}</strong></div><div className="project-links"><Link href={`/projects/${project.slug}`} className="button button-dark">Complete case study <Arrow diagonal /></Link>{project.repo && <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} source on GitHub`} className="icon-link">GH</a>}</div></div><ProjectVisual variant={project.variant} tone={project.tone}/></article>)}</div>
