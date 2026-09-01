@@ -12,7 +12,7 @@ export default function SkillsMatrix() {
     <section className="section page-shell" id="skills" aria-labelledby="skills-heading">
       <div className="grid gap-8 border-t border-[#ded3c6] pt-16 lg:grid-cols-[1fr_.72fr] lg:items-end">
         <div>
-          <span className="kicker">02 / Skills & technologies</span>
+          <span className="kicker">Capabilities / Verified stack</span>
           <h2 id="skills-heading" className="mt-5 max-w-[820px] text-[clamp(42px,5.4vw,72px)] font-semibold leading-[0.98] tracking-[-0.06em] text-[#20251f]">
             Technology chosen for the work, not for the buzzword list.
           </h2>
