@@ -30,7 +30,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <section className="project-detail-block project-overview"><span>01 / Contribution</span><div><h2>What I worked on.</h2><p>{project.contribution}</p><p>{project.outcome}</p></div></section>
       <section className="project-detail-block"><span>02 / Core scope</span><div><h2>What the project includes.</h2><ul className="detail-feature-grid">{project.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></div></section>
       <section className="project-detail-block"><span>03 / Decisions</span><div><h2>How the work was approached.</h2><ol className="detail-decisions">{project.decisions.map((decision, i) => <li key={decision}><b>{String(i + 1).padStart(2, "0")}</b><p>{decision}</p></li>)}</ol></div></section>
-      <section className="project-detail-block"><span>04 / Technology</span><div><h2>Tools and domain.</h2><div className="detail-stack">{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div></div></section>
+      <section className="project-detail-block">
+        <span>04 / Technology</span>
+        <div>
+          <h2>Technology used on this project.</h2>
+          <p>The stack below reflects the tools and platform involved in my contribution—not a generic list of everything I know.</p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {project.stack.map((tech) => {
+              const mark = tech.split(/[\s./-]+/).map((part) => part[0]).join("").slice(0, 3).toUpperCase();
+              return (
+                <div key={tech} className="flex min-h-20 items-center gap-4 rounded-2xl border border-[#ded3c6] bg-[#fffaf3] px-4 py-4 shadow-[0_10px_26px_rgba(62,45,32,0.05)]">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#20251f] text-[10px] font-bold tracking-[0.08em] text-[#f1a087]">{mark}</span>
+                  <strong className="text-sm font-semibold leading-5 text-[#353a34]">{tech}</strong>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       <footer className="mt-24 grid items-end gap-10 rounded-[32px] border border-[#d8cabb] bg-[#20251f] px-7 py-10 text-[#fffaf2] shadow-[0_26px_70px_rgba(38,29,22,0.16)] sm:px-10 sm:py-12 lg:grid-cols-[1fr_auto] lg:px-14">
         <div className="max-w-[720px]">
           <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#e49a7f]">{hasPublicLinks ? "Project links" : "Current status"}</span>
