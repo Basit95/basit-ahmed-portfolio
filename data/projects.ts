@@ -93,6 +93,34 @@ export const clientCaseStudies: PortfolioProject[] = [
 
 export const allProjects = [...githubProjects, ...clientCaseStudies];
 
+
+const qalamCraftProject: PortfolioProject = {
+  slug: "qalam-craft-studio", name: "Qalam Craft Studio", eyebrow: "Craft-led Shopify commerce", kind: "client", status: "Live Shopify store",
+  summary: "A Shopify storefront created to present handcrafted products through a warm, focused shopping experience that keeps the craft, product detail and purchase journey connected.",
+  role: "Shopify development",
+  contribution: "I worked on the Shopify storefront experience, organising the catalogue, product presentation and responsive shopping flow so customers can move naturally from discovery to product detail and checkout.",
+  stack: ["Shopify", "Liquid", "Theme customization", "JavaScript", "Responsive commerce"],
+  features: ["Craft-focused storefront presentation", "Collection and product discovery", "Responsive product-detail experience", "Cart and checkout journey", "Reusable Shopify theme sections", "Mobile-first commerce behaviour"],
+  decisions: ["Kept the visual direction product-led so the handmade character remains the focus.", "Structured reusable sections to make future catalogue and campaign updates easier.", "Simplified the mobile journey so product discovery and buying actions remain clear on smaller screens."],
+  outcome: "A live Shopify store with a focused catalogue experience, reusable theme structure and responsive purchase journey.",
+  live: "https://qalamcraft-studio.myshopify.com/",
+};
+
+const fuelMeProject: PortfolioProject = {
+  slug: "fuel-me", name: "Fuel Me", eyebrow: "Enterprise fuel procurement platform", kind: "client", status: "Live Framer website",
+  summary: "A high-impact Framer experience for an AI-powered fuel procurement platform that centralises deliveries, invoices, pricing, vendor coverage and operational visibility.",
+  role: "Framer development",
+  contribution: "I worked on the Framer website experience, translating a complex enterprise platform into clear marketing sections, responsive layouts and polished interactions that communicate the product value without overwhelming the visitor.",
+  stack: ["Framer", "Responsive web design", "CMS", "Interaction design", "Performance"],
+  features: ["Enterprise product storytelling", "Responsive Framer layouts", "Animated marketing sections", "Platform and industry use-case presentation", "Conversion-focused navigation and calls to action", "Reusable content and CMS patterns"],
+  decisions: ["Used strong visual hierarchy to make a technical procurement platform understandable at a glance.", "Balanced motion with readability so interaction supports the story instead of distracting from it.", "Structured reusable Framer components to keep product, industry and resource content consistent."],
+  outcome: "A live enterprise marketing website that turns a complex fuel-operations platform into a clear, credible and engaging digital experience.",
+  live: "https://www.fuel.me/",
+};
+
+clientCaseStudies.push(qalamCraftProject, fuelMeProject);
+allProjects.push(qalamCraftProject, fuelMeProject);
+
 export function getProject(slug: string) {
   return allProjects.find((project) => project.slug === slug);
 }
