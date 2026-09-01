@@ -6,6 +6,37 @@ import SiteFooter from "../../../components/SiteFooter";
 import ParallaxBand from "../../../components/ParallaxBand";
 import { allProjects, getProject } from "../../../data/projects";
 
+const technologyLogoRules: Array<[string, string]> = [
+  ["next.js", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"],
+  ["react", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"],
+  ["typescript", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"],
+  ["javascript", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"],
+  ["angular", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"],
+  ["rxjs", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rxjs/rxjs-original.svg"],
+  ["tailwind", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"],
+  ["jquery", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg"],
+  ["html5", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"],
+  ["css3", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"],
+  ["bootstrap", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"],
+  ["laravel", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"],
+  ["php", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"],
+  ["mysql", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"],
+  ["postgresql", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"],
+  ["supabase", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"],
+  ["prisma", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg"],
+  ["sqlite", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"],
+  ["wordpress", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg"],
+  ["woocommerce", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/woocommerce/woocommerce-original.svg"],
+  ["shopify", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg"],
+  ["docker", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"],
+  ["aws", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"],
+];
+
+function getTechnologyLogo(technology: string) {
+  const normalized = technology.toLowerCase();
+  return technologyLogoRules.find(([name]) => normalized.includes(name))?.[1];
+}
+
 export function generateStaticParams() { return allProjects.map(({ slug }) => ({ slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -38,9 +69,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {project.stack.map((tech) => {
               const mark = tech.split(/[\s./-]+/).map((part) => part[0]).join("").slice(0, 3).toUpperCase();
+              const logo = getTechnologyLogo(tech);
               return (
                 <div key={tech} className="flex min-h-20 items-center gap-4 rounded-2xl border border-[#ded3c6] bg-[#fffaf3] px-4 py-4 shadow-[0_10px_26px_rgba(62,45,32,0.05)]">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#20251f] text-[10px] font-bold tracking-[0.08em] text-[#f1a087]">{mark}</span>
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-[#e1d6c9] bg-white p-2">{logo ? <img src={logo} alt="" width="30" height="30" loading="lazy" className="h-8 w-8 object-contain" /> : <b className="text-[10px] tracking-[0.08em] text-[#a45b45]">{mark}</b>}</span>
                   <strong className="text-sm font-semibold leading-5 text-[#353a34]">{tech}</strong>
                 </div>
               );
