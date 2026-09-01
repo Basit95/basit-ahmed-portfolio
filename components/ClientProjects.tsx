@@ -1,4 +1,7 @@
-type ClientProject = {
+tfunction WebsitePreview
+  ype ClientProject = {
+  if (project.slug === "qalam-craft-studio") return <div className="case-ui case-qalam"><header><b>QALAM / CRAFT</b><span>Objects made with intention</span><i>Cart 01</i></header><section><small>THE CRAFT EDIT</small><h4>Made slowly.<br/>Kept for years.</h4><div><span>New collection</span><span>Hand-finished</span><span>Studio favourites</span></div></section></div>;
+  if (project.slug === "fuel-me") return <div className="case-ui case-fuel"><header><b>FUEL ME</b><span>Platform · Solutions · Resources</span><i>Sign in</i></header><section><small>INTELLIGENT FUEL PROCUREMENT</small><h4>Every gallon.<br/>Tracked and optimized.</h4><div><span><b>175M+</b> gallons</span><span><b>1,800+</b> vendors</span><span><b>99.8%</b> SLA</span></div></section></div>;
   slug: string;
   name: string;
   shortName: string;
@@ -157,6 +160,22 @@ export const clientProjects: ClientProject[] = [
     visual: "cosmetic",
     accent: "cosmetic",
     tags: ["WordPress", "Healthcare", "Booking UX"],
+
+
+clientProjects.splice(8, 0,
+  {
+    slug: "qalam-craft-studio", name: "Qalam Craft Studio", shortName: "Qalam Craft", category: "Craft-led Shopify store",
+    description: "A warm Shopify storefront presenting handcrafted products through focused discovery, product detail and responsive shopping journeys.",
+    url: "https://qalamcraft-studio.myshopify.com/", visual: "report", accent: "qalam",
+    tags: ["Shopify", "Liquid", "Theme UX"], contribution: "Shopify storefront and theme development",
+  },
+  {
+    slug: "fuel-me", name: "Fuel Me", shortName: "Fuel Me", category: "Enterprise Framer experience",
+    description: "A polished Framer website explaining an AI-powered platform for fuel procurement, vendor coverage, operational control and analytics.",
+    url: "https://www.fuel.me/", visual: "report", accent: "fuel",
+    tags: ["Framer", "Enterprise", "Interaction design"], contribution: "Framer development and responsive interaction work",
+  },
+);
     contribution: "Custom WordPress engineering",
   },
   {
