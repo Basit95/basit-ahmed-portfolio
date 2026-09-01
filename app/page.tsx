@@ -6,6 +6,7 @@ import ClientProjects from "../components/ClientProjects";
 import SiteFooter from "../components/SiteFooter";
 import GitHubProjects from "../components/GitHubProjects";
 import ParallaxBand from "../components/ParallaxBand";
+import SkillsMatrix from "../components/SkillsMatrix";
 
 const services = [
   { index: "01", title: "Product & frontend engineering", text: "Scalable React, Next.js and Angular interfaces for SaaS products, dashboards and internal tools.", tags: ["React", "Next.js", "TypeScript"] },
@@ -109,6 +110,7 @@ export default function Home() {
           </article>
         </div>
       </section>
+      <SkillsMatrix />
       <section className="services section page-shell" id="services">
         <div className="section-heading"><div><span className="kicker">02 / Services</span><h2>From idea to a product<br />people want to use.</h2></div><p>I can take ownership of the frontend, build the supporting application logic and help you improve a product that is already in production.</p></div>
         <div className="service-list">{services.map((service)=><a href="mailto:basit.ahmed906@gmail.com?subject=Service%20enquiry" className="service-row" key={service.index}><span className="service-number">{service.index}</span><div><h3>{service.title}</h3><p>{service.text}</p></div><div className="service-tags">{service.tags.map(tag=><span key={tag}>{tag}</span>)}</div><span className="round-arrow"><Arrow diagonal /></span></a>)}</div>
