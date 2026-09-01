@@ -159,6 +159,57 @@ img,svg{max-width:100%}
 
 /* Deployment motion upgrade: compact first viewport and page-wide parallax. */
 @media(min-width:821px){.site-header{top:0;margin-top:0}.hero{padding-top:28px}}
+
+
+/* September 2026 interaction repair */
+html { scroll-behavior: smooth; }
+.site-header {
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.project-detail-actions,
+.project-detail-actions.scroll-reveal,
+.project-detail-actions.scroll-reveal.is-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+}
+
+.commercial-work .client-project-card,
+.commercial-work .client-project-card.depth-interactive,
+.commercial-work .client-project-card.depth-interactive.is-depth-active {
+  transform: none !important;
+  transform-style: flat !important;
+}
+
+.commercial-work .client-project-card .client-project-media,
+.commercial-work .client-project-card .client-project-copy,
+.commercial-work .client-project-card.depth-interactive > * {
+  transform: none !important;
+}
+
+@media (min-width: 821px) {
+  .motion-ready .parallax-scene {
+    translate: 0 var(--parallax-y, 0);
+    transition: translate 80ms linear;
+    will-change: translate;
+  }
+
+  .motion-ready .hero-stage.parallax-scene {
+    translate: 0 calc(var(--hero-shift, 0px) + var(--parallax-y, 0px));
+  }
+}
+
+@media (max-width: 820px), (prefers-reduced-motion: reduce) {
+  .motion-ready .parallax-scene {
+    translate: none !important;
+    will-change: auto;
+  }
+}
 .motion-ready .parallax-scene{translate:0 var(--parallax-y,0);transition:translate .12s linear;will-change:translate}
 .motion-ready .hero-stage.parallax-scene{translate:0 calc(var(--hero-shift,0px) + var(--parallax-y,0px))}
 @media(max-width:820px){.motion-ready .parallax-scene{translate:none!important;will-change:auto}}
